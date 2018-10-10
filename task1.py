@@ -69,7 +69,13 @@ def draw1(self,number):
         	burned = self.deck.draw()
         	self.deck.discard(burned)
         	print("Burned a card/cards: {}".format(burned))
-        	
+        	for _ in range(0, number):
+            	    card = self.deck.draw()
+            	    self.table_cards.append(card)
+	    	    print("New card on the table: {}".format(card))
+
+	else:
+		print("Game as ended because of only 1 gamer or no gamer exists on the table")
 
 def fold(self, gamer_id):
         if gamer_id not in self._gamer_ids:
@@ -79,6 +85,9 @@ def fold(self, gamer_id):
 def remove(self, gamer_id):
         self.fold(gamer_id)
         self._dead_gamer_ids.add(gamer_id)
+
+def reset(self):
+	self._folder_ids = set(self._dead_gamer_ids)
 
 
 
